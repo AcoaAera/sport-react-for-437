@@ -2,7 +2,7 @@ import {
     makeAutoObservable
 } from "mobx"
 import {
-    getSport,
+    getSportCurDay,
     pushSport
 } from '../localStorage.js'
 
@@ -16,10 +16,10 @@ class Sport {
         gym: 0,
         press: 0
     }
+
     constructor() {
         makeAutoObservable(this)
-        console.log();
-        this.sport = !Boolean(getSport()) ? this._emptySport : getSport();
+        this.sport = !Boolean(getSportCurDay()) ? this._emptySport : getSportCurDay();
     }
 
     setSport(sport) {
@@ -60,7 +60,6 @@ class Sport {
     }
 
     getGym = () => {
-        console.log(123);
         return this.sport.gym
     }
 }

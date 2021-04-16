@@ -2,6 +2,7 @@ import { observer } from 'mobx-react'
 import React from 'react'
 
 import sport from '../storeMobx/sport'
+import { getSport } from '../localStorage'
 
 class Statistica extends React.Component {
     constructor(props) {
@@ -40,6 +41,13 @@ class Statistica extends React.Component {
 
     render() {
 
+        let arr = !Boolean(getSport()) ? null : getSport().map((el) =>
+            <tr key={el.date}>
+                <td>{el.date}</td>
+                <td>{el.gym}</td>
+                <td>{el.press}</td>
+            </tr>)
+
         return (
             <div className="container text-center">
                 <blockquote className="blockquote">{this.getCurrentDay()}</blockquote>
@@ -49,6 +57,19 @@ class Statistica extends React.Component {
                 <div>
                     <button type="button" className="btn btn-secondary" onClick={this.clear}>Сбросить</button>
                 </div>
+                <hr />
+                <table className="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Дата</th>
+                            <th scope="col">Анжуманя</th>
+                            <th scope="col">Пресс</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {arr}
+                    </tbody>
+                </table>
             </div>
         )
     }
