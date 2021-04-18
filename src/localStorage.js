@@ -18,7 +18,7 @@ export const pushSport = (sport) => {
 }
 
 export const getSport = () => {
-    return JSON.parse(localStorage.getItem(SPORT))
+    return JSON.parse(localStorage.getItem(SPORT)).sort((a, b) => new Date(b.date) - new Date(a.date))
 }
 
 export const getSportCurDay = () => {
