@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/sport-react-for-437/static/css/main.d725c3ff.chunk.css",
-    "main.js": "/sport-react-for-437/static/js/main.28173c6e.chunk.js",
-    "main.js.map": "/sport-react-for-437/static/js/main.28173c6e.chunk.js.map",
+    "main.js": "/sport-react-for-437/static/js/main.befd2e59.chunk.js",
+    "main.js.map": "/sport-react-for-437/static/js/main.befd2e59.chunk.js.map",
     "runtime-main.js": "/sport-react-for-437/static/js/runtime-main.cb98d945.js",
     "runtime-main.js.map": "/sport-react-for-437/static/js/runtime-main.cb98d945.js.map",
     "static/js/2.7d0525c8.chunk.js": "/sport-react-for-437/static/js/2.7d0525c8.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.cb98d945.js",
     "static/js/2.7d0525c8.chunk.js",
     "static/css/main.d725c3ff.chunk.css",
-    "static/js/main.28173c6e.chunk.js"
+    "static/js/main.befd2e59.chunk.js"
   ]
 }
