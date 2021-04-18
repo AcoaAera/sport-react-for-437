@@ -3,29 +3,10 @@ import React from 'react'
 
 import sport from '../storeMobx/sport'
 import { getSport } from '../localStorage'
+import { positions } from '../dictionary'
 
 class Statistica extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            sport: {
-                gym: 0,
-                press: 0
-            }
-        }
-    }
-
-    componentDidMount() {
-        this.setState({ sport: sport.getSport() })
-    }
-
     clear = () => {
-        this.setState({
-            sport: {
-                gym: 0,
-                press: 0
-            }
-        })
         sport.setEmptySport();
     }
 
@@ -39,35 +20,45 @@ class Statistica extends React.Component {
         return today
     }
 
-    render() {
+    getRowData(el) {
+        return positions.map((el2, i) =>
+            !Boolean(el[el2.name]) ?
+                <td key={el.date + el2.name + i}>0</td> :
+                <td key={el.date + el2.name + el[el2.name]}>{el[el2.name]}</td>)
+    }
 
-        let arr = !Boolean(getSport()) ? null : getSport().map((el) =>
+
+
+    render() {
+        let beforeHeader = positions.map(el => <h1 key={'cur' + el.name + sport.sport[el.name]}>{el.nameRus}: <span className="display-4">{!Boolean(sport.sport[el.name]) ? 0 : sport.sport[el.name]}</span></h1>)
+
+        let header = positions.map((el) => <th key={el.name} scope="col">{el.nameRus}</th>)
+        let body = !Boolean(getSport()) ? null : getSport().map((el) =>
             <tr key={el.date}>
                 <td>{el.date}</td>
-                <td>{el.gym}</td>
-                <td>{el.press}</td>
+                {this.getRowData(el)}
             </tr>)
 
         return (
             <div className="container text-center">
                 <blockquote className="blockquote">{this.getCurrentDay()}</blockquote>
-                <h1>Анжуманя: <span className="display-4">{this.state.sport.gym}</span></h1>
-                <h1>Пресс: <span className="display-4">{this.state.sport.press}</span></h1>
+                {beforeHeader}
                 <hr />
                 <div>
                     <button type="button" className="btn btn-secondary" onClick={this.clear}>Сбросить</button>
                 </div>
                 <hr />
+
+
                 <table className="table table-striped">
                     <thead>
                         <tr>
                             <th scope="col">Дата</th>
-                            <th scope="col">Анжуманя</th>
-                            <th scope="col">Пресс</th>
+                            {header}
                         </tr>
                     </thead>
                     <tbody>
-                        {arr}
+                        {body}
                     </tbody>
                 </table>
             </div>

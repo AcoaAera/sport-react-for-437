@@ -7,23 +7,13 @@ import {
 } from '../localStorage.js'
 
 class Sport {
-    sport = {
-        gym: 20,
-        press: 30
-    }
+    sport = {}
 
-    _emptySport = {
-        gym: 0,
-        press: 0
-    }
+    _emptySport = {}
 
     constructor() {
         makeAutoObservable(this)
         this.sport = !Boolean(getSportCurDay()) ? this._emptySport : getSportCurDay();
-    }
-
-    setSport(sport) {
-        this.sport = sport
     }
 
     setEmptySport() {
@@ -31,36 +21,18 @@ class Sport {
         pushSport(this.sport)
     }
 
-    setEmptyPress() {
-        this.sport.press = 0
+    setEmptyByType(type) {
+        this.sport[type] = 0
         pushSport(this.sport)
     }
 
-    setEmptyGym() {
-        this.sport.gym = 0
+    addByType(val, type) {
+        this.sport[type] = (!Boolean(this.sport[type])) ? val : this.sport[type] + val
         pushSport(this.sport)
     }
 
-    addPress = (val) => {
-        this.sport.press += val
-        pushSport(this.sport)
-    }
-
-    addGym = (val) => {
-        this.sport.gym += val
-        pushSport(this.sport)
-    }
-
-    getSport() {
-        return this.sport
-    }
-
-    getPress = () => {
-        return this.sport.press
-    }
-
-    getGym = () => {
-        return this.sport.gym
+    getSportByType(type) {
+        return !Boolean(this.sport[type]) ? 0 : this.sport[type]
     }
 }
 

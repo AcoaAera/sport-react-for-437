@@ -1,45 +1,21 @@
 export const positions = [{
-        id: 1,
-        name: "Менеджер"
+        nameRus: "Анжуманя",
+        name: "gym"
     },
     {
-        id: 2,
-        name: "Пилот"
+        nameRus: "Пресс",
+        name: "press"
     },
     {
-        id: 3,
-        name: "Программист"
-    },
-    {
-        id: 4,
-        name: "Генеральный директор"
-    },
-    {
-        id: 5,
-        name: "Аналитик"
-    }
-]
-
-export const gender = [{
-        id: 1,
-        name: "Мужской",
-        nameEng: "male"
-    },
-    {
-        id: 2,
-        name: "Женский",
-        nameEng: "female"
+        nameRus: "Планка",
+        name: "planka"
     },
 ]
 
-// Получить name должности по id
-export function getPosinionById(id) {
-    let pos = positions.find((el) => el.id === Number(id))
-    return Boolean(pos) ? pos.name : null
-}
+export const title = 'Статистика'
+export const titleSite = ""
 
-// Получить name гендера по id
-export function getGenderById(id) {
-    let gen = gender.find((el) => el.id === Number(id))
-    return Boolean(gen) ? gen.name : null
+export function getNameRusByName(name) {
+    let x = positions.find(el => el.name === name)
+    return x !== -1 ? x.nameRus : null
 }
