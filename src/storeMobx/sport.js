@@ -5,19 +5,23 @@ import {
     getSportCurDay,
     pushSport
 } from '../localStorage.js'
+import {
+    positions
+} from '../dictionary'
+
+const _emptySport = {}
 
 class Sport {
     sport = {}
 
-    _emptySport = {}
 
     constructor() {
         makeAutoObservable(this)
-        this.sport = !Boolean(getSportCurDay()) ? this._emptySport : getSportCurDay();
+        this.sport = !Boolean(getSportCurDay()) ? _emptySport : getSportCurDay();
     }
 
     setEmptySport() {
-        this.sport = this._emptySport
+        this.sport = _emptySport
         pushSport(this.sport)
     }
 
@@ -33,6 +37,18 @@ class Sport {
 
     getSportByType(type) {
         return !Boolean(this.sport[type]) ? 0 : this.sport[type]
+    }
+
+    getListCurrentSportName = () => {
+        let arr = []
+        for (let key in this.sport) positions.forEach(el => el.name === key ? arr.push(el.nameRus) : null)
+        return arr;
+    }
+
+    getListCurrentSportValue = () => {
+        let arr = []
+        for (let key in this.sport) positions.forEach(el => el.name === key ? arr.push(this.sport[key]) : null)
+        return arr;
     }
 }
 

@@ -4,63 +4,45 @@ import React from 'react'
 import sport from '../storeMobx/sport'
 import { getSport } from '../localStorage'
 import { positions } from '../dictionary'
+import { getCurrentDay } from '../different'
+
+import Table from '../components/Table.jsx'
+import Button from '../components/Button.jsx'
+import Carousel from '../components/Carousel.jsx'
+import fonCarousel from '../img/tekstura-tekstury-fon-linii.jpg'
 
 class Statistica extends React.Component {
-    clear = () => {
-        sport.setEmptySport();
+    clear = () => { sport.setEmptySport() }
+
+    createHeader = () => {
+        let array = ['Дата']
+        positions.map(el => array.push(el.nameRus))
+        return array
     }
 
-    getCurrentDay() {
-        var today = new Date();
-        var dd = String(today.getDate()).padStart(2, '0');
-        var mm = String(today.getMonth() + 1).padStart(2, '0');
-        var yyyy = today.getFullYear();
-
-        today = yyyy + '-' + mm + '-' + dd;
-        return today
+    createBody = () => {
+        let array = []
+        if (!Boolean(getSport())) return array
+        getSport().forEach(el => {
+            let row = positions.map(pos => !Boolean(el[pos.name]) ? 0 : el[pos.name])
+            row.unshift(el.date)
+            array.push(row)
+        })
+        return array
     }
-
-    getRowData(el) {
-        return positions.map((el2, i) =>
-            !Boolean(el[el2.name]) ?
-                <td key={el.date + el2.name + i}>0</td> :
-                <td key={el.date + el2.name + el[el2.name]}>{el[el2.name]}</td>)
-    }
-
-
 
     render() {
-        let beforeHeader = positions.map(el => <h1 key={'cur' + el.name + sport.sport[el.name]}>{el.nameRus}: <span className="display-4">{!Boolean(sport.sport[el.name]) ? 0 : sport.sport[el.name]}</span></h1>)
-
-        let header = positions.map((el) => <th key={el.name} scope="col">{el.nameRus}</th>)
-        let body = !Boolean(getSport()) ? null : getSport().map((el) =>
-            <tr key={el.date}>
-                <td>{el.date}</td>
-                {this.getRowData(el)}
-            </tr>)
 
         return (
             <div className="container text-center">
-                <blockquote className="blockquote">{this.getCurrentDay()}</blockquote>
-                {beforeHeader}
+                <blockquote className="blockquote">{getCurrentDay()}</blockquote>
+                <Carousel fon={fonCarousel} list1={sport.getListCurrentSportName()} list2={sport.getListCurrentSportValue()} dataInterval="10000" id="carousel"></Carousel>
                 <hr />
                 <div>
-                    <button type="button" className="btn btn-secondary" onClick={this.clear}>Сбросить</button>
+                    <Button extraclass="btn-secondary" onClick={this.clear} text="Сбросить" />
                 </div>
                 <hr />
-
-
-                <table className="table table-striped">
-                    <thead>
-                        <tr>
-                            <th scope="col">Дата</th>
-                            {header}
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {body}
-                    </tbody>
-                </table>
+                <Table headers={this.createHeader()} body={this.createBody()} />
             </div>
         )
     }

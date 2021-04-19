@@ -10,8 +10,8 @@ import { positions, title } from './dictionary'
 class App extends React.Component {
 
   render() {
-    const x = positions.map(el => <li className="nav-item active" key={el.name}><Link to={'/' + el.name} className="nav-link">{el.nameRus}</Link></li>)
-    const y = positions.map(el => <Route exact path={'/' + el.name} key={el.name} component={Uni} />)
+    const navItem = positions.map(el => <li className="nav-item active" key={el.name}><Link to={`/${el.name}`} className="nav-link">{el.nameRus}</Link></li>)
+    const routes = positions.map(el => <Route exact path={`/${el.name}`} key={el.name} component={Uni} />)
     return (
       <div>
         <Router>
@@ -23,7 +23,7 @@ class App extends React.Component {
 
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
               <ul className="navbar-nav mr-auto">
-                {x}
+                {navItem}
               </ul>
             </div>
           </nav>
@@ -31,7 +31,7 @@ class App extends React.Component {
             <Switch>
               <Route exact path="/" component={Statistica} />
               <Route exact path="/uni" component={Uni} />
-              {y}
+              {routes}
               <Route component={Page404} />
             </Switch>
           </div>

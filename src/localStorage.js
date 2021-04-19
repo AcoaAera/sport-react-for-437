@@ -1,3 +1,7 @@
+import {
+    getCurrentDay
+} from './different'
+
 const SPORT = 'SPORT'
 
 export const pushSport = (sport) => {
@@ -28,14 +32,4 @@ export const getSportCurDay = () => {
 
     let sportCurDay = getSport()
     return !Boolean(sportCurDay) ? sportCurDay : sportCurDay.find((el) => el.date === getCurrentDay())
-}
-
-function getCurrentDay() {
-    var today = new Date();
-    var dd = String(today.getDate()).padStart(2, '0');
-    var mm = String(today.getMonth() + 1).padStart(2, '0');
-    var yyyy = today.getFullYear();
-
-    today = yyyy + '-' + mm + '-' + dd;
-    return today
 }
