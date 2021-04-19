@@ -10,6 +10,10 @@ export const positions = [{
         nameRus: "Планка",
         name: "planka"
     },
+    {
+        nameRus: "Стульчик",
+        name: "static_chair"
+    },
 ]
 
 export const title = 'Статистика'
