@@ -14,6 +14,10 @@ export const positions = [{
         nameRus: "Стульчик",
         name: "static_chair"
     },
+    {
+        nameRus: "Обратные отжимания на скамье",
+        name: "reverse_push_ups_on_the_bench"
+    },
 ]
 
 export const title = 'Статистика'
