@@ -1,23 +1,24 @@
 {
   "files": {
-    "main.css": "/sport-react-for-437/static/css/main.953e26b7.chunk.css",
-    "main.js": "/sport-react-for-437/static/js/main.bc775663.chunk.js",
-    "main.js.map": "/sport-react-for-437/static/js/main.bc775663.chunk.js.map",
-    "runtime-main.js": "/sport-react-for-437/static/js/runtime-main.ce799b45.js",
-    "runtime-main.js.map": "/sport-react-for-437/static/js/runtime-main.ce799b45.js.map",
-    "static/js/2.1a4109ae.chunk.js": "/sport-react-for-437/static/js/2.1a4109ae.chunk.js",
-    "static/js/2.1a4109ae.chunk.js.map": "/sport-react-for-437/static/js/2.1a4109ae.chunk.js.map",
-    "static/js/3.5ae9647a.chunk.js": "/sport-react-for-437/static/js/3.5ae9647a.chunk.js",
-    "static/js/3.5ae9647a.chunk.js.map": "/sport-react-for-437/static/js/3.5ae9647a.chunk.js.map",
+    "main.css": "/sport-react-for-437/static/css/main.cb01e090.chunk.css",
+    "main.js": "/sport-react-for-437/static/js/main.b0b6eecd.chunk.js",
+    "main.js.map": "/sport-react-for-437/static/js/main.b0b6eecd.chunk.js.map",
+    "runtime-main.js": "/sport-react-for-437/static/js/runtime-main.c477965f.js",
+    "runtime-main.js.map": "/sport-react-for-437/static/js/runtime-main.c477965f.js.map",
+    "static/js/2.644ea58e.chunk.js": "/sport-react-for-437/static/js/2.644ea58e.chunk.js",
+    "static/js/2.644ea58e.chunk.js.map": "/sport-react-for-437/static/js/2.644ea58e.chunk.js.map",
+    "static/js/3.7774ff39.chunk.js": "/sport-react-for-437/static/js/3.7774ff39.chunk.js",
+    "static/js/3.7774ff39.chunk.js.map": "/sport-react-for-437/static/js/3.7774ff39.chunk.js.map",
     "index.html": "/sport-react-for-437/index.html",
-    "static/css/main.953e26b7.chunk.css.map": "/sport-react-for-437/static/css/main.953e26b7.chunk.css.map",
-    "static/js/2.1a4109ae.chunk.js.LICENSE.txt": "/sport-react-for-437/static/js/2.1a4109ae.chunk.js.LICENSE.txt",
+    "static/css/main.cb01e090.chunk.css.map": "/sport-react-for-437/static/css/main.cb01e090.chunk.css.map",
+    "static/js/2.644ea58e.chunk.js.LICENSE.txt": "/sport-react-for-437/static/js/2.644ea58e.chunk.js.LICENSE.txt",
+    "static/media/pic-pic.45002935.mp3": "/sport-react-for-437/static/media/pic-pic.45002935.mp3",
     "static/media/tekstura-tekstury-fon-linii.5e054fef.jpg": "/sport-react-for-437/static/media/tekstura-tekstury-fon-linii.5e054fef.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.ce799b45.js",
-    "static/js/2.1a4109ae.chunk.js",
-    "static/css/main.953e26b7.chunk.css",
-    "static/js/main.bc775663.chunk.js"
+    "static/js/runtime-main.c477965f.js",
+    "static/js/2.644ea58e.chunk.js",
+    "static/css/main.cb01e090.chunk.css",
+    "static/js/main.b0b6eecd.chunk.js"
   ]
 }
