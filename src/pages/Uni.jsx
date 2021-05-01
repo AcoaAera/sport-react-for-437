@@ -23,6 +23,7 @@ class Uni extends React.Component {
                 <h1 className="display-4">{count}</h1>
                 <div>
                     <div className="btn-group btn-group-lg" role="group" aria-label="Basic example">
+                        <Button extraclass="btn-secondary" onClick={() => this.add(5)} text="+5" />
                         <Button extraclass="btn-danger" onClick={() => this.add(10)} text="+10" />
                         <Button extraclass="btn-warning" onClick={() => this.add(20)} text="+20" />
                         <Button extraclass="btn-success" onClick={() => this.add(30)} text="+30" />

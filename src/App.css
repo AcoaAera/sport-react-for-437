@@ -6,3 +6,20 @@
 .carousel-caption {
     position: inherit;
 }
+
+.timer-result {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.timer-interval {
+    color: #28a745
+}
+
+.timer-pause {
+    color: #ffc107
+}
+
+.timer-timer {
+    font-size: 6rem;
+}
